@@ -66,19 +66,19 @@ CJK, otf 格式)制作了
 
 这里 NotoSansCJKsc 从 Google Fonts 下载是 otf 格式的, 需要转换为 ttf 格式.
 
-# 转换 otf 到 ttf 格式
+## 转换 otf 到 ttf 格式
 
 由于 asciidoctor-pdf 使用了 prawn, 后者只能解析 ttf 格式字体.
 Asciidoctor 作者提到使用 fontforge 来做格式转换([链接](https://discuss.asciidoctor.org/How-to-generate-fonts-td2358.html)),
 但好像转换后的文件出现缺字的情况.
 
-## 系统要求
+### 系统要求
 
 1.  Python3
 
 2.  virtualenvwrapper
 
-## 下载 otf 格式思源黑体
+### 下载 otf 格式思源黑体
 
 [**Source Han
 Sans**](https://fonts.adobe.com/fonts/source-han-sans-simplified-chinese)
@@ -94,7 +94,7 @@ the Source Sans Pro family.
 
 2.  [Google Fonts on GitHub](https://github.com/googlefonts/noto-cjk)
 
-## 安装 Adobe Font Development Kit for OpenType
+### 安装 Adobe Font Development Kit for OpenType
 
 The [**Adobe Font Development Kit for OpenType
 (AFDKO)**](https://github.com/adobe-type-tools/afdko), also known as
@@ -151,7 +151,7 @@ Apache License.
 </tbody>
 </table>
 
-# 修改绑定字体
+## 修改绑定字体
 
 可以修改系统中的 fonts 和 themes,
 这样执行不需要每次都指定 pdf-style 和 pdf-fontsdir 参数
@@ -166,9 +166,9 @@ Apache License.
 
     $ asciidoctor-pdf helloworld.adoc
 
-# 中文换行问题
+## 中文换行问题
 
-## 问题描述
+### 问题描述
 
 - <https://github.com/asciidoctor/asciidoctor-pdf/issues/82>
 
@@ -176,7 +176,7 @@ Apache License.
 
 - <https://github.com/asciidoctor/asciidoctor-pdf/pull/1355>
 
-## 解决方法
+### 解决方法
 
 在文档首行添加属性:
 
@@ -227,9 +227,9 @@ is English. 什么都没有。 **黑体**. _斜体_.
 **黑体**. _斜体_. 测试中文和 English 混合编排。这是中文。This is English.
 什么都没有。 **黑体**. _斜体_.
 
-# Troubleshooting
+## Troubleshooting
 
-## `` /Library/Ruby/Gems/2.6.0/gems/prawn-2.2.2/lib/prawn/font/ttf.rb:246:in `/': nil can’t be coerced into Float (TypeError) ``
+### `` /Library/Ruby/Gems/2.6.0/gems/prawn-2.2.2/lib/prawn/font/ttf.rb:246:in `/': nil can’t be coerced into Float (TypeError) ``
 
 字体不符合要求, 见 [Preparing a Custom
 Font](https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#preparing-a-custom-font)
@@ -237,7 +237,7 @@ Font](https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-gu
 从 [Google Fonts](https://fonts.google.com/?category=Monospace)
 选择一款 Mono 字体
 
-## 渲染源代码中的中文注释出现问题
+### 渲染源代码中的中文注释出现问题
 
 [default-theme.yml](https://github.com/asciidoctor/asciidoctor-pdf/blob/v1.5.0.beta.7/data/themes/base-theme.yml)
 指定 M+ 1mn 字体, 但未指定 [Fallback
@@ -286,7 +286,7 @@ font.
     literal:
       font_family: Roboto Mono
 
-## 中文空格问题
+### 中文空格问题
 
 虽然前面已经讨论了中文空格在文字对齐上的问题, 空格作为英文单词分隔符,
 在词法分析上有特殊意义, 因此中英文混合在有些情况下仍有些问题, 如
